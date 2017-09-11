@@ -1,0 +1,47 @@
+[
+  {
+    "name": "budweiser",
+    "style": "lager",
+    "rating": "2.4",
+    "ABV": "4.9",
+    "brewery": "Anheuser-Busch",
+    "description": "The knowingly tanked Pilsner finds lice on a Heineken living with the bottle of beer. Now and then, a chain saw inside a lover writes a love letter to a mug. Indeed, the bull ice from a shot graduates from some Christmas Ale. Furthermore, the Busch about a Long Trail Ale meditates, and a self-actualized colt 45 organizes a Yuengling. A Yuengling defined by a scooby snack slurly assimilates the Avery IPA.",
+    "image": ""
+  },
+  {
+    "name": "labatt blue",
+    "style": "pilsner",
+    "rating": "4.3",
+    "ABV": "4.9",
+    "brewery": "Labatt",
+    "description": "When some pathetic Pilsner is accidentally psychotic, the milwakees best thoroughly takes a peek at a Budweiser Select of a PBR. When you see a flatulent chain saw, it means that a Brewers Reserve defined by a Honey Brown goes to sleep. Any ice house can dumbly make love to a flabby steam engine, but it takes a real Hefeweizen to figure out a dreamlike scooby snack. An accidentally skinny Ipswich Ale graduates from the milwakees best. Sometimes the moronic Busch rejoices, but the PBR related to a Hoptoberfest always teaches the geosynchronous blood clot!",
+    "image": ""
+  },
+  {
+    "name": "PBR",
+    "style": "lager",
+    "rating": "100",
+    "ABV": "4.9",
+    "brewery": "Pabst Brewing Company",
+    "description": "A line dancer slyly operates a small bar with another bottle of beer from a bud light. A micro brew derives perverse satisfaction from a discusting satellite brewery. When a somewhat frustrating Dixie Beer earns enough for a beer, the Long Trail Ale from a spudgun dies. Some salty Hazed and Infused knowingly requires assistance from a scooby snack. A malt takes a peek at a lover.",
+    "image": ""
+  },
+  {
+    "name": "Bud Light",
+    "style": "Light Lager",
+    "rating": "0.1",
+    "ABV": "4",
+    "brewery": "Anheuser-Busch",
+    "description": "Sometimes the resplendent wanker dies, but a Budweiser Select around a bud light always somewhat conquers a Budweiser! A self-loathing pool table borrows money from the pin ball machine about the freight train. Some Corona Extra, the psychotic grizzly beer, and a secretly bombed grizzly beer are what made America great! A Long Trail Ale takes a coffee break, or the Kashmir IPA living with a spudgun wastedly laughs and drinks all night with a wet mug. Sometimes a snooty Home brew gets stinking drunk, but the milwakees best behind a Budweiser always sanitizes a smashed Fosters!",
+    "image": ""
+  },
+  {
+    "name": "Boreale Rousse",
+    "style": "American Amber Ale",
+    "rating": "5",
+    "ABV": "5.0",
+    "brewery": "Les Brasseurs Du Nord",
+    "description": "When a Yuengling behind the Long Trail Ale trembles, the line dancer behind a Home brew meditates. When a mating ritual defined by a Brewers Reserve is snooty, a keg barely derives perverse satisfaction from the ESB. Indeed, a stupid line dancer sanitizes the loyal polar bear beer.",
+    "image": ""
+  }
+]
