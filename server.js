@@ -8,12 +8,7 @@ const express     = require("express");
 const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
 const app         = express();
-
 const morgan      = require('morgan');
-
-// Seperated Routes for each Resource
-const usersRoutes = require("./routes/users");
-const beersRoutes = require("./routes/beers")
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -37,16 +32,29 @@ const monk = require('monk')
 const db = monk(`localhost:27017/${db_name}`)
 db.then(() => {
   console.log(`Connected to db: ${db_name}`)
+
+// Load route helpers
+  // const DataHelpers = require("./lib/data-helpers")(db)
+
+  // console.log('data-helpers', DataHelpers)
+  // console.log('db', db)
+  // console.log('this', this)
+
+// Seperated Routes for each Resource
+  const beersRoutes = require("./routes/beers")(db)
+  const usersRoutes = require("./routes/users")(db)
+
+// Mount all resource routes
+  app.use("/beers", beersRoutes)
+
+// Home page
+  app.get("/", (req, res) => {
+    res.render("index");
+});
+
 })
 
 
-// Mount all resource routes
-// app.use("/api/users", usersRoutes(knex));
-
-// Home page
-app.get("/", (req, res) => {
-  res.render("index");
-});
 
 app.listen(PORT, () => {
   console.log("beer_clone listening on port " + PORT);
