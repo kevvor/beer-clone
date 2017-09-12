@@ -42,7 +42,7 @@ db.then(() => {
 
 // Seperated Routes for each Resource
   const beersRoutes = require("./routes/beers")(db)
-  const usersRoutes = require("./routes/users")(db)
+  // const usersRoutes = require("./routes/users")(db)
 
 // Mount all resource routes
   app.use("/beers", beersRoutes)

@@ -18,20 +18,26 @@ module.exports = function(db) {
     })
   });
 
-  // beersRoutes.post("/", function(req, res) {
-  //   if (!req.body.text) {
-  //     res.status(400).json({ error: 'invalid request: no data in POST body'});
-  //     return;
-  //   }
+  beersRoutes.post("/", function(req, res) {
+    if (!req.body.text) {
+      res.status(400).json({ error: 'invalid request: no data in POST body'});
+      return;
+    }
 
-  //   DataHelpers.saveBeer(beer, (err) => {
-  //     if (err) {
-  //       res.status(500).json({ error: err.message });
-  //     } else {
-  //       res.json(beer);
-  //     }
-  //   });
-  // });
+    beers.insertOne({
+      'name': req.body.text.name,
+      'style': req.body.text.style,
+      'rating': req.body.text.rating,
+      'ABV': req.body.text.ABV,
+      'brewery': req.body.text.brewery,
+      'description': req.body.text.description
+    }).then(() => {return db.close()}
+    ).catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+
+
+  });
 
   return beersRoutes;
 
