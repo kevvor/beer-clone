@@ -6,15 +6,16 @@ const beersRoutes  = express.Router();
 module.exports = function(db) {
 
   beersRoutes.get("/", function(req, res) {
-    const mongo_response = {}
+    const template_vars = {}
     const beers = db.get('beers')
 
     beers.find().then((docs) => {
-      mongo_response.beers = docs
+      template_vars.beers = docs
+      // console.log(template_vars.beers)
     }).then(() => {
-      return res.json(mongo_response)
+      res.render("beers", template_vars)
     }).catch((err) => {
-      res.status(500).json({ error: err.message})
+      res.status(500).json({ error: err.message })
     })
   });
 
