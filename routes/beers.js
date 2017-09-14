@@ -13,7 +13,7 @@ module.exports = function(db) {
       template_vars.beers = docs
       // console.log(template_vars.beers)
     }).then(() => {
-      res.render("beers", template_vars)
+      res.render("beers_index", template_vars)
     }).catch((err) => {
       res.status(500).json({ error: err.message })
     })
