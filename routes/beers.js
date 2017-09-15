@@ -11,7 +11,6 @@ module.exports = function(db) {
 
     beers.find().then((docs) => {
       template_vars.beers = docs
-      // console.log(template_vars.beers)
     }).then(() => {
       res.render("beers_index", template_vars)
     }).catch((err) => {

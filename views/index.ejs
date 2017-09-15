@@ -12,6 +12,14 @@
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <div class="header">
+      <h1>beer clone &#x1F37A;</h1>
+    </div>
+    <div class="body">
+      <h2>check out a new pour</h2>
+      <% for (let beer of beers) { %>
+        <h4> <%= beer.name %> </h4>
+      <% } %>
+    </div>
   </body>
 </html>

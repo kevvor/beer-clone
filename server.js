@@ -36,10 +36,6 @@ db.then(() => {
 // Load route helpers
   // const DataHelpers = require("./lib/data-helpers")(db)
 
-  // console.log('data-helpers', DataHelpers)
-  // console.log('db', db)
-  // console.log('this', this)
-
 // Seperated Routes for each Resource
   const beersRoutes = require("./routes/beers")(db)
   // const usersRoutes = require("./routes/users")(db)
@@ -49,9 +45,19 @@ db.then(() => {
 
 // Home page
   app.get("/", (req, res) => {
-    res.render("index");
-});
+    const beers = db.get('beers')
+    const mongo_response = {}
+    const template_vars = {}
 
+    beers.find().then((docs) => {
+      mongo_response.beers = docs
+      template_vars.beers = mongo_response.beers
+    }).then(() => {
+      res.render("index", template_vars);
+    }).catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+  });
 })
 
 
