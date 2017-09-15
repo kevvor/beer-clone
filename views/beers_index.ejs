@@ -8,7 +8,7 @@
       <% for (let beer of beers) { %>
 
       <li>
-        <%= beer['name'] %>
+        <a href=<%= `/beers/${beer.db_id}` %>><%= beer['name'] %></a>
         <br>
         Rating: <%= beer['rating'] %>
         <br>
