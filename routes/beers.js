@@ -5,9 +5,11 @@ const beersRoutes  = express.Router();
 
 module.exports = function(db) {
 
+  const beers = db.get('beers')
+  const template_vars = {}
+
   beersRoutes.get("/", function(req, res) {
-    const template_vars = {}
-    const beers = db.get('beers')
+    // const beers = db.get('beers')
 
     beers.find().then((docs) => {
       console.log(docs)
@@ -40,8 +42,7 @@ module.exports = function(db) {
   });
 
   beersRoutes.get("/:beer", (req, res) => {
-    const beers = db.get('beers')
-    const template_vars = {}
+    // const beers = db.get('beers')
 
     beers.findOne({ db_id: req.params.beer }).then((doc) => {
       template_vars.beer = doc

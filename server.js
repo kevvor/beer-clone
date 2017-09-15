@@ -26,7 +26,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 //Establish db connection
-const db_name = 'beer_clone'
+const db_name = process.env.DB_NAME
 const mongo = require('mongodb')
 const monk = require('monk')
 const db = monk(`localhost:27017/${db_name}`)
