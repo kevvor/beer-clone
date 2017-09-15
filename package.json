@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "local": "./node_modules/.bin/nodemon --ignore public/"
+    "local": "./node_modules/.bin/nodemon --ignore public/",
+    "rollback": "cd db/ && node dbFunctions.js rollback && cd ..",
+    "migrate": "cd db/ && node dbFunctions.js migrate && cd ..",
+    "seed": "cd db/ && node dbFunctions.js seed && cd .."
   },
   "author": "kevvor",
   "license": "ISC",
