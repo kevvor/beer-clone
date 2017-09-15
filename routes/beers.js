@@ -10,6 +10,7 @@ module.exports = function(db) {
     const beers = db.get('beers')
 
     beers.find().then((docs) => {
+      console.log(docs)
       template_vars.beers = docs
     }).then(() => {
       res.render("beers_index", template_vars)
@@ -31,14 +32,28 @@ module.exports = function(db) {
       'ABV': req.body.text.ABV,
       'brewery': req.body.text.brewery,
       'description': req.body.text.description
-    }).then(() => {return db.close()}
-    ).catch((err) => {
+    }).then(() => {
+      return db.close()
+    }).catch((err) => {
       res.status(500).json({ error: err.message })
     })
-
-
   });
+
+  beersRoutes.get("/:beer", (req, res) => {
+    const beers = db.get('beers')
+    const template_vars = {}
+
+    beers.findOne({ db_id: req.params.beer }).then((doc) => {
+      template_vars.beer = doc
+    }).then(() => {
+      res.render("show_beer", template_vars)
+    }).catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+  })
 
   return beersRoutes;
 
 }
+
+
