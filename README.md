@@ -7,8 +7,8 @@
 3. Install dependencies: `npm i`
 4. Fix to binaries for sass: `npm rebuild node-sass`
 5. Run migrations: `npm run migrate`
-6. Run the seed: `npm run seed`
-7. Run the server: `npm run local`
+6. Run seed: `npm run seed`
+7. Run  server: `npm run local`
 8. Visit `http://localhost:8080/`
 
 ## Dependencies
