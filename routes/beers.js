@@ -1,60 +1,54 @@
-"use strict";
+/* beers.js */
 
-const express      = require('express');
-const beersRoutes  = express.Router();
+const express = require('express');
 
-module.exports = function(db) {
+const beersRoutes = express.Router();
 
-  const beers = db.get('beers')
-  const template_vars = {}
+module.exports = (db) => {
+  const beers = db.get('beers');
+  const templateVars = {};
 
-  beersRoutes.get("/", function(req, res) {
-    // const beers = db.get('beers')
-
+  beersRoutes.get('/', (req, res) => {
     beers.find().then((docs) => {
-      console.log(docs)
-      template_vars.beers = docs
+      console.log(docs);
+      templateVars.beers = docs;
     }).then(() => {
-      res.render("beers_index", template_vars)
+      res.render('beers_index', templateVars);
     }).catch((err) => {
-      res.status(500).json({ error: err.message })
-    })
+      res.status(500).json({ error: err.message });
+    });
   });
 
-  beersRoutes.post("/", function(req, res) {
+  beersRoutes.post('/', (req, res) => {
     if (!req.body.text) {
-      res.status(400).json({ error: 'invalid request: no data in POST body'});
+      res.status(400).json({ error: 'invalid request: no data in POST body' });
       return;
     }
 
     beers.insertOne({
-      'name': req.body.text.name,
-      'style': req.body.text.style,
-      'rating': req.body.text.rating,
-      'ABV': req.body.text.ABV,
-      'brewery': req.body.text.brewery,
-      'description': req.body.text.description
+      name: req.body.text.name,
+      style: req.body.text.style,
+      rating: req.body.text.rating,
+      ABV: req.body.text.ABV,
+      brewery: req.body.text.brewery,
+      description: req.body.text.description,
     }).then(() => {
-      return db.close()
+      return db.close();
     }).catch((err) => {
-      res.status(500).json({ error: err.message })
-    })
+      res.status(500).json({ error: err.message });
+    });
   });
 
-  beersRoutes.get("/:beer", (req, res) => {
+  beersRoutes.get('/:beer', (req, res) => {
     // const beers = db.get('beers')
 
     beers.findOne({ db_id: req.params.beer }).then((doc) => {
-      template_vars.beer = doc
+      templateVars.beer = doc;
     }).then(() => {
-      res.render("show_beer", template_vars)
+      res.render('show_beer', templateVars);
     }).catch((err) => {
-      res.status(500).json({ error: err.message })
-    })
-  })
-
+      res.status(500).json({ error: err.message });
+    });
+  });
   return beersRoutes;
-
-}
-
-
+};

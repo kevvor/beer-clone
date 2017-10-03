@@ -11,7 +11,7 @@
       <h2>check out a new pour</h2>
       <% for (let beer of beers) { %>
         <h4>
-          <a href=<%= `beers/${beer.db_id}` %>><%=beer.name%></a>
+          <a href=<%=`beers/${beer.db_id}`%>><%=beer.name%></a>
         </h4>
       <% } %>
     </div>
