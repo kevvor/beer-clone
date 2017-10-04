@@ -8,12 +8,18 @@
   <body>
   <%- include("partials/_header") %>
     <div class="body">
-      <h2>check out a new pour</h2>
-      <% for (let beer of beers) { %>
-        <h4>
-          <a href=<%=`beers/${beer.db_id}`%>><%=beer.name%></a>
-        </h4>
-      <% } %>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h2>check out a new pour</h2>
+          <% for (let beer of beers) { %>
+            <h4>
+              <a href=<%=`beers/${beer.db_id}`%>><%=beer.name%></a>
+            </h4>
+            <% } %>
+          </div>
+        <div class="col-md-2"></div>
+      </div>
     </div>
   </body>
 </html>

@@ -31,7 +31,7 @@ app.use('/styles', sass({
 app.use(express.static('public'));
 
 // Establish db connection
-const dbName = ENV.DBNAME;
+const dbName = ENV.DB_NAME;
 const monk = require('monk');
 
 const db = monk(`localhost:27017/${dbName}`);
